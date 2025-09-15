@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Zainab Salami - Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#cc9618] text-white font-body">
+
+  <!-- ============= INTRO PAGE ============= -->
+  <section id="intro" class="fixed inset-0 z-50 flex items-center justify-center bg-black transition-opacity duration-700">
+    <!-- Background -->
+    <div class="absolute inset-0">
+      <img src="/img/1724923098406-new.jpg" 
+           alt="Intro background"
+           class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-black opacity-80"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 text-center px-6 max-w-2xl mx-auto animate-intro">
+      <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold font-heading text-white mb-6 sm:mb-8 drop-shadow-lg leading-tight">
+        Welcome to My World
+      </h1>
+      <p class="text-base sm:text-lg md:text-2xl text-[#FFD580] mb-8 sm:mb-10 font-body font-medium leading-relaxed drop-shadow-lg">
+        I am Zainab Salami — Media & Communication Professional, Filmmaker, and Entrepreneur.<br>
+        I craft stories, strategies, and experiences that inspire change, amplify voices, and transform societies.
+      </p>
+      <button id="enterBtn" 
+              class="bg-[#f28500] text-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-xl hover:bg-[#241001] transition duration-300 cursor-pointer">
+        Enter My World
+      </button>
+    </div>
+  </section>
+
+  <!-- ============= MAIN SITE ============= -->
+  <div id="main-site">
+    <!-- Header -->
+    <header class="bg-[#241001] shadow-4xl sticky top-0 z-40">
+      <div class="container mx-auto px-4 py-4 sm:py-6 flex justify-between items-center">
+        <a href="#home">
+          <h1 class="text-2xl sm:text-3xl font-extrabold font-heading tracking-tight">
+            <span class="text-[#f28500]">Zainab</span>
+            <span class="text-[#D2B48C]">Salami</span>
+          </h1>
+        </a>
+        <nav>
+          <ul class="flex space-x-4 sm:space-x-6 items-center text-sm sm:text-lg">
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#education" class="nav-link">Education</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+        <div>
+          <a href="#resume" class="resume-btn">Resume</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <main id="home" class="flex-grow flex items-center justify-center px-4 py-12 sm:py-16 bg-gradient-to-br from-[#cc9618] via-[#f28500] to-[#241001]">
+      <div class="flex flex-col md:flex-row items-center justify-center w-full max-w-6xl mx-auto gap-8 sm:gap-12 shadow-lg rounded-3xl backdrop-blur-lg p-6 sm:p-10 animate-fade-in">
+        <!-- Hero Image -->
+        <div class="w-36 h-36 sm:w-44 sm:h-44 md:w-72 md:h-72 rounded-full overflow-hidden shadow-2xl border-4 border-[#f28500] flex-shrink-0 mb-6 md:mb-0 animate-slide-in-left">
+          <img src="/img/1724923098406-new.jpg" alt="Zainab Salami" class="w-full h-full object-cover" />
+        </div>
+        <!-- Hero Content -->
+        <div class="flex-1 text-left md:pl-10 animate-slide-in-right">
+          <h2 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 font-heading text-[#FFD580] drop-shadow-lg leading-tight">
+            Zainab Salami
+          </h2>
+          <p class="text-lg sm:text-xl md:text-2xl font-semibold mb-6 text-[#2B2D42] tracking-wide">
+            Media & Communication Professional | Filmmaker | Entrepreneur | Strategic Storyteller
+          </p>
+          <p class="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 max-w-2xl text-white/90 leading-relaxed">
+            I craft stories and strategies that inspire change, amplify voices, and build meaningful connections. 
+            With over a decade of experience leading campaigns for global institutions, I use the power of media 
+            and communication to drive social impact across Africa and beyond.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#projects" class="btn-primary">Explore My Work</a>
+            <a href="#contact" class="btn-outline">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#241001] text-center py-4 mt-auto">
+      <p class="text-sm">&copy; 2025 Zainab Salami. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
