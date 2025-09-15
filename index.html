@@ -38,31 +38,45 @@
     </div>
   </section>
 
-  <!-- ============= MAIN SITE ============= -->
-  <div id="main-site">
-    <!-- Header -->
-    <header class="bg-[#241001] shadow-4xl sticky top-0 z-40">
-      <div class="container mx-auto px-4 py-4 sm:py-6 flex justify-between items-center">
-        <a href="#home">
-          <h1 class="text-2xl sm:text-3xl font-extrabold font-heading tracking-tight">
-            <span class="text-[#f28500]">Zainab</span>
-            <span class="text-[#D2B48C]">Salami</span>
-          </h1>
-        </a>
-        <nav>
-          <ul class="flex space-x-4 sm:space-x-6 items-center text-sm sm:text-lg">
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#experience" class="nav-link">Experience</a></li>
-            <li><a href="#education" class="nav-link">Education</a></li>
-            <li><a href="#projects" class="nav-link">Projects</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
-          </ul>
-        </nav>
-        <div>
-          <a href="#resume" class="resume-btn">Resume</a>
-        </div>
-      </div>
-    </header>
+<!-- ===================== MAIN SITE ===================== -->
+<div id="main-site" class="hidden">
+  <!-- Header -->
+  <header class="bg-[#241001] shadow-4xl sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4 sm:py-6 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="#home">
+        <h1 class="text-xl sm:text-3xl font-extrabold font-heading tracking-tight">
+          <span class="text-[#f28500]">Zainab</span>
+          <span class="text-[#D2B48C]">Salami</span>
+        </h1>
+      </a>
+
+      <!-- Mobile Toggle Button -->
+      <button id="menu-toggle" aria-label="Toggle Menu"
+        class="relative w-8 h-8 flex flex-col justify-between items-center sm:hidden cursor-pointer z-50">
+        <span class="block w-8 h-0.5 bg-[#f28500] rounded transition-transform duration-300 origin-center"></span>
+        <span class="block w-8 h-0.5 bg-[#f28500] rounded transition-opacity duration-300"></span>
+        <span class="block w-8 h-0.5 bg-[#f28500] rounded transition-transform duration-300 origin-center"></span>
+      </button>
+
+      <!-- Navigation -->
+      <nav id="nav-menu"
+        class="absolute sm:static top-0 left-0 w-full sm:w-auto bg-[#241001] sm:bg-transparent shadow-lg sm:shadow-none 
+               flex flex-col sm:flex-row items-center justify-center sm:justify-end space-y-6 sm:space-y-0 sm:space-x-6 
+               text-lg font-medium text-white px-6 sm:px-0 py-20 sm:py-0 hidden sm:flex transition-all duration-500 ease-in-out">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#resume" class="resume-btn sm:ml-4">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+
+
+
 
     <!-- Hero -->
     <main id="home" class="flex-grow flex items-center justify-center px-4 py-12 sm:py-16 bg-gradient-to-br from-[#cc9618] via-[#f28500] to-[#241001]">
