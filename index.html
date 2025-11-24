@@ -1,237 +1,434 @@
+<!-- @index.html#1-320 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link rel="stylesheet" href="style.css">
-  <title>Zainab Salami - Portfolio</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zainab Salami | Media Professional & Filmmaker</title>
+  <meta name="description" content="Portfolio of Zainab Salami, media & communication professional, filmmaker, entrepreneur." />
+  <link rel="icon" type="image/png" href="img/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#f28500',
+            espresso: '#1b120b',
+            sand: '#d2b48c',
+            onyx: '#0f0a05'
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            body: ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body class="bg-[#cc9618] text-white font-body">
-
-  <!-- ============= INTRO PAGE ============= -->
-  <section id="intro" class="fixed inset-0 z-50 flex items-center justify-center bg-black transition-opacity duration-700">
-    <!-- Background -->
-    <div class="absolute inset-0">
-      <img src="/img/1724923098406-new.jpg" 
-           alt="Intro background"
-           class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-black opacity-80"></div>
+<body class="bg-onyx font-body text-gray-100">
+  <!-- Preloader -->
+  <div id="preloader" class="fixed inset-0 z-50 grid place-items-center bg-onyx transition-opacity duration-500">
+    <div class="flex flex-col items-center gap-4">
+      <div class="h-16 w-16 animate-spin rounded-full border-4 border-primary/40 border-t-primary"></div>
+      <p class="text-primary text-sm tracking-[0.4em] uppercase">Loading</p>
     </div>
+  </div>
 
-    <!-- Content -->
-    <div class="relative z-10 text-center px-6 max-w-2xl mx-auto animate-intro">
-      <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold font-heading text-white mb-6 sm:mb-8 drop-shadow-lg leading-tight">
-        Welcome to My World
-      </h1>
-      <p class="text-base sm:text-lg md:text-2xl text-[#FFD580] mb-8 sm:mb-10 font-body font-medium leading-relaxed drop-shadow-lg">
-        I am Zainab Salami — Media & Communication Professional, Filmmaker, and Entrepreneur.<br>
-        I craft stories, strategies, and experiences that inspire change, amplify voices, and transform societies.
-      </p>
-      <button id="enterBtn" 
-              class="bg-[#f28500] text-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-xl hover:bg-[#241001] transition duration-300 cursor-pointer">
-        Enter My World
-      </button>
-    </div>
-  </section>
-
-<!-- ===================== MAIN SITE ===================== -->
-<div id="main-site" class="hidden">
-  <!-- Header -->
-  <header class="bg-[#241001] shadow-4xl sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-4 sm:py-6 flex justify-between items-center">
-      <!-- Logo -->
-      <a href="#home">
-        <h1 class="text-xl sm:text-3xl font-extrabold font-heading tracking-tight">
-          <span class="text-[#f28500]">Zainab</span>
-          <span class="text-[#D2B48C]">Salami</span>
-        </h1>
-      </a>
-
-      <!-- Mobile Toggle Button -->
-      <button id="menu-toggle" aria-label="Toggle Menu"
-        class="relative w-8 h-8 flex flex-col justify-between items-center sm:hidden cursor-pointer z-50">
-        <span class="block w-8 h-0.5 bg-[#f28500] rounded transition-transform duration-300 origin-center"></span>
-        <span class="block w-8 h-0.5 bg-[#f28500] rounded transition-opacity duration-300"></span>
-        <span class="block w-8 h-0.5 bg-[#f28500] rounded transition-transform duration-300 origin-center"></span>
-      </button>
-
-      <!-- Navigation -->
-      <nav id="nav-menu"
-        class="absolute sm:static top-0 left-0 w-full sm:w-auto bg-[#241001] sm:bg-transparent shadow-lg sm:shadow-none 
-               flex flex-col sm:flex-row items-center justify-center sm:justify-end space-y-6 sm:space-y-0 sm:space-x-6 
-               text-lg font-medium text-white px-6 sm:px-0 py-20 sm:py-0 hidden sm:flex transition-all duration-500 ease-in-out">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#education" class="nav-link">Education</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#contact" class="nav-link">Contact</a>
-        <a href="#resume" class="resume-btn sm:ml-4">Resume</a>
+  <!-- Page Wrapper -->
+  <div id="page" class="opacity-0 transition-opacity duration-500">
+    <!-- Header -->
+    <header id="topbar" class="fixed inset-x-0 top-0 z-40 bg-onyx/80 backdrop-blur border-b border-white/10">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <a href="#home" class="flex items-center gap-2 text-2xl font-display font-semibold tracking-tight text-white">
+          <span class="text-primary">Zainab</span> Salami
+        </a>
+        <button id="menuToggle" class="text-2xl text-sand md:hidden" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <ul id="navLinks" class="hidden items-center gap-8 text-sm font-medium text-sand md:flex">
+          <li><a class="nav-link hover:text-primary" href="#home">Home</a></li>
+          <li><a class="nav-link hover:text-primary" href="#about">About</a></li>
+          <li><a class="nav-link hover:text-primary" href="#experience">Experience</a></li>
+          <li><a class="nav-link hover:text-primary" href="#projects">Projects</a></li>
+          <li><a class="nav-link hover:text-primary" href="#community">Community</a></li>
+          <li><a class="nav-link hover:text-primary" href="#memories">Memories</a></li>
+          <li><a class="nav-link hover:text-primary" href="#academics">Academics</a></li>
+          <li><a class="nav-link hover:text-primary" href="#testimonials">Testimonials</a></li>
+          <li><a class="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition hover:bg-[#d87400]" href="#contact">Contact</a></li>
+        </ul>
       </nav>
-    </div>
-  </header>
+      <div id="mobileMenu" class="hidden border-t border-white/10 bg-onyx/95 px-6 py-4 md:hidden">
+        <ul class="grid gap-4 text-sand">
+          <li><a class="nav-link block rounded-lg px-4 py-2 hover:bg-primary/10 hover:text-primary" href="#home">Home</a></li>
+          <li><a class="nav-link block rounded-lg px-4 py-2 hover:bg-primary/10 hover:text-primary" href="#about">About</a></li>
+          <li><a class="nav-link block rounded-lg px-4 py-2 hover:bg-primary/10 hover:text-primary" href="#experience">Experience</a></li>
+          <li><a class="nav-link block rounded-lg px-4 py-2 hover:bg-primary/10 hover:text-primary" href="#projects">Projects</a></li>
+          <li><a class="nav-link block rounded-lg px-4 py-2 hover:bg-primary/10 hover:text-primary" href="#community">Community</a></li>
+          <li><a class="nav-link block rounded-lg px-4 py-2 hover:bg-primary/10 hover:text-primary" href="#memories">Memories</a></li>
+          <li><a class="nav-link block rounded-lg px-4 py-2 hover:bg-primary/10 hover:text-primary" href="#academics">Academics</a></li>
+          <li><a class="nav-link block rounded-lg px-4 py-2 hover:bg-primary/10 hover:text-primary" href="#testimonials">Testimonials</a></li>
+          <li><a class="block rounded-full bg-primary px-5 py-2 text-center font-semibold text-white shadow hover:bg-[#d87400]" href="#contact">Let’s Collaborate</a></li>
+        </ul>
+      </div>
+    </header>
 
     <!-- Hero -->
-    <main id="home" class="flex-grow flex items-center justify-center px-4 py-12 sm:py-16 bg-gradient-to-br from-[#cc9618] via-[#f28500] to-[#241001]">
-      <div class="flex flex-col md:flex-row items-center justify-center w-full max-w-6xl mx-auto gap-8 sm:gap-12 shadow-lg rounded-3xl backdrop-blur-lg p-6 sm:p-10 animate-fade-in">
-        <!-- Hero Image -->
-        <div class="w-36 h-36 sm:w-44 sm:h-44 md:w-72 md:h-72 rounded-full overflow-hidden shadow-2xl border-4 border-[#f28500] flex-shrink-0 mb-6 md:mb-0 animate-slide-in-left">
-          <img src="/img/1724923098406-new.jpg" alt="Zainab Salami" class="w-full h-full object-cover" />
+    <section id="home" class="relative min-h-screen overflow-hidden pt-32">
+      <div class="absolute inset-0 -z-10 bg-[url('img/pattern.png')] bg-cover opacity-10"></div>
+      <div class="absolute inset-0 -z-10 bg-gradient-to-br from-espresso via-onyx to-black opacity-95"></div>
+      <div class="mx-auto flex max-w-7xl flex-col-reverse items-center gap-12 px-6 pb-24 md:flex-row md:gap-16">
+        <div class="max-w-2xl text-center md:text-left">
+          <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.4em] text-sand">Media Professional</p>
+          <h1 class="mb-6 text-4xl font-display font-semibold leading-tight text-white sm:text-5xl md:text-6xl">
+            Crafting documentaries, campaigns & <span class="text-primary">transformative narratives</span>.
+          </h1>
+          <p class="mb-8 text-lg text-gray-300">
+            I amplify voices through film, build communication strategies that move audiences, and empower communities with storytelling tools.
+          </p>
+          <div class="flex flex-wrap items-center justify-center gap-4 md:justify-start">
+            <a href="#projects" class="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition hover:bg-[#d87400]">View Portfolio</a>
+            <a href="#contact" class="rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-primary/40 hover:text-primary">Book a Consultation</a>
+          </div>
+          <div class="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-400 md:justify-start">
+            <div class="flex items-center gap-3">
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-white/10 text-lg font-semibold text-white">8+</span>
+              <span>Years<br>Experience</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-white/10 text-lg font-semibold text-white">50+</span>
+              <span>Projects<br>Delivered</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-white/10 text-lg font-semibold text-white">12</span>
+              <span>Awards &<br>Recognitions</span>
+            </div>
+          </div>
         </div>
-        <!-- Hero Content -->
-        <div class="flex-1 text-left md:pl-10 animate-slide-in-right">
-          <h2 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 font-heading text-[#FFD580] drop-shadow-lg leading-tight">
-            Zainab Salami
-          </h2>
-          <p class="text-lg sm:text-xl md:text-2xl font-semibold mb-6 text-[#2B2D42] tracking-wide">
-            Media & Communication Professional | Filmmaker | Entrepreneur | Strategic Storyteller
-          </p>
-          <p class="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 max-w-2xl text-white/90 leading-relaxed">
-            I craft stories and strategies that inspire change, amplify voices, and build meaningful connections. 
-            With over a decade of experience leading campaigns for global institutions, I use the power of media 
-            and communication to drive social impact across Africa and beyond.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4">
-            <a href="#projects" class="btn-primary">Explore My Work</a>
-            <a href="#contact" class="btn-outline">Get in Touch</a>
+        <div class="relative">
+          <div class="absolute -inset-4 -z-10 rounded-3xl bg-primary/40 blur-3xl"></div>
+          <div class="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-2xl shadow-black/50">
+            <img src="img/1724923098406-new.jpg" alt="Portrait of Zainab Salami" class="h-[520px] w-[360px] object-cover md:h-[560px] md:w-[420px]" />
           </div>
         </div>
       </div>
-    </main>
+    </section>
 
-  <section id="about" class="relative bg-gradient-to-r from-[#f28500]/15 via-[#FFD580]/10 to-[#cc9618]/10 py-16 sm:py-20">
-  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
-    <!-- Profile Card -->
-    <div class="relative w-56 h-56 sm:w-72 sm:h-72 rounded-3xl overflow-hidden shadow-2xl border-4 border-[#FFD580]/70 flex-shrink-0 mb-8 md:mb-0 animate-slide-in-left bg-[#241001]/90">
-      <img src="/img/1724923098406-new.jpg" alt="Zainab Salami Portrait" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
-      <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-[#241001]/95 to-transparent px-4 py-3 text-center">
-        <span class="block text-lg sm:text-xl font-bold text-[#FFD580] font-heading drop-shadow-md">Zainab Salami</span>
-        <span class="block text-xs sm:text-sm text-[#f28500] font-medium tracking-wide">Media & Communication Professional</span>
+        <!-- About -->
+    <section id="about" class="relative overflow-hidden bg-gradient-to-b from-onyx via-[#120b06] to-onyx py-24">
+      <div class="absolute inset-0 -z-10 bg-[url('img/pattern.png')] bg-cover opacity-5"></div>
+      <div class="mx-auto flex max-w-7xl flex-col gap-16 px-6 lg:flex-row lg:items-center">
+        <div class="relative w-full lg:w-5/12">
+          <div class="absolute -left-6 -top-6 h-32 w-32 rounded-full bg-primary/20 blur-3xl"></div>
+          <div class="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-2xl shadow-black/40 lg:ml-8">
+            <img src="img/1724923098406-new.jpg" alt="Zainab directing on set" class="h-full w-full object-cover" />
+          </div>
+        </div>
+        <div class="w-full space-y-8 lg:w-7/12">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.5em] text-primary/70">Get to know me</p>
+            <h2 class="mt-4 font-display text-4xl font-semibold text-white md:text-5xl">Strategist, filmmaker and community builder.</h2>
+          </div>
+          <p class="text-lg leading-relaxed text-gray-300">
+            With a background spanning broadcast, brand storytelling and grassroots media education, I help organisations translate complex ideas into emotionally resonant visuals. I’m passionate about shaping narratives that spur social change while mentoring the next generation of media voices across Africa.
+          </p>
+          <div class="grid gap-6 md:grid-cols-2">
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <h3 class="text-xl font-semibold text-white">Core Values</h3>
+              <ul class="mt-4 space-y-3 text-sm text-gray-300">
+                <li class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-primary"></span>Storytelling with integrity</li>
+                <li class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-primary"></span>Representation & inclusion</li>
+                <li class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-primary"></span>Collaboration & mentorship</li>
+              </ul>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <h3 class="text-xl font-semibold text-white">Focus Areas</h3>
+              <ul class="mt-4 space-y-3 text-sm text-gray-300">
+                <li class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-primary"></span>Documentary production</li>
+                <li class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-primary"></span>Strategic communications</li>
+                <li class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-primary"></span>Media training programs</li>
+              </ul>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-4 text-sm text-gray-300">
+            <div class="rounded-full border border-white/10 bg-white/5 px-5 py-2">International collaborations</div>
+            <div class="rounded-full border border-white/10 bg-white/5 px-5 py-2">UNESCO Media Fellow</div>
+            <div class="rounded-full border border-white/10 bg-white/5 px-5 py-2">Women in Film advocate</div>
+          </div>
+        </div>
       </div>
-      <span class="absolute top-3 right-3 bg-[#f28500] text-white text-[10px] sm:text-xs px-3 py-1 rounded-full shadow-md font-semibold">Filmmaker</span>
-    </div>
+    </section>
 
-    <!-- About Content -->
-    <div class="flex-1 animate-slide-in-right">
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 font-heading text-[#FFD580] drop-shadow-md leading-tight">
-        About Me
-      </h2>
-      
-      <div class="bg-[#241001]/80 rounded-2xl shadow-lg p-6 sm:p-8 mb-6 border border-[#FFD580]/20">
-        <p class="text-base sm:text-lg md:text-xl mb-4 max-w-2xl text-white/90 leading-relaxed">
-          <span class="font-bold text-[#f28500]">Zainab Salami</span> is a passionate storyteller, strategic communicator, and entrepreneur. 
-          With over a decade of experience, she leads creative campaigns and media projects that inspire change across Africa and beyond.
-        </p>
-        <ul class="list-disc list-inside text-white/80 text-sm sm:text-base md:text-lg space-y-2 pl-2">
-          <li>Led campaigns for <span class="font-semibold text-[#FFD580]">World Bank, UNICEF, UNDP, USAID</span></li>
-          <li>Expert in health, education, governance, and social justice media</li>
-          <li>Founder of <span class="font-semibold text-[#f28500]">Zainab Media</span> & <span class="font-semibold text-[#f28500]">Impact Creators</span></li>
-        </ul>
-      </div>
-      <!-- Call-to-Action Buttons -->
-      <div class="flex flex-wrap gap-4">
-        <a href="#projects" class="btn-primary">View My Projects</a>
-        <a href="#contact" class="btn-outline">Contact Me</a>
-        <a href="#resume" class="btn-primary bg-[#FFD580] text-[#241001] hover:bg-[#f28500] hover:text-white">Download Resume</a>
-      </div>
-    </div>
+    <!-- Experience -->
+    <section id="experience" class="bg-onyx py-24">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="flex flex-col items-center gap-6 text-center">
+          <p class="text-sm font-semibold uppercase tracking-[0.5em] text-primary/70">Experience journey</p>
+          <h2 class="font-display text-4xl font-semibold text-white md:text-5xl">Shaping stories across industries.</h2>
+          <p class="max-w-3xl text-lg text-gray-300">From policy advocacy campaigns to cinematic documentaries, I’ve led teams that transform ideas into vivid experiences that educate, persuade and inspire.</p>
+        </div>
+        <div class="relative mt-16">
+          <span class="absolute left-1/2 hidden h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-primary/40 to-transparent md:block"></span>
+          <div class="space-y-12">
+            <div class="md:grid md:grid-cols-5 md:items-center md:gap-10">
+              <div class="md:col-span-2 md:justify-self-end">
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+                  <span class="inline-flex items-center rounded-full bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.4em] text-primary">2023 - Present</span>
+                  <h3 class="mt-4 text-2xl font-semibold text-white">Lead Creative Director</h3>
+                  <p class="mt-2 text-sm font-medium uppercase tracking-[0.3em] text-sand">Amplify Africa Studios</p>
+                  <p class="mt-4 text-gray-300">
+                    Steering multi-country documentary and campaign projects that highlight education, public health and women-led innovation across West Africa. Delivered content reaching 15M+ viewers.
+                  </p>
+                </div>
+              </div>
+              <div class="mt-10 grid place-items-center md:col-span-1 md:mt-0">
+                <span class="grid h-16 w-16 place-items-center rounded-full border border-primary/40 bg-primary/10 font-display text-xl font-semibold text-primary">01</span>
+              </div>
+              <div class="md:col-span-2 md:justify-self-start"></div>
+            </div>
 
+            <div class="md:grid md:grid-cols-5 md:items-center md:gap-10">
+              <div class="md:col-span-2 md:justify-self-end"></div>
+              <div class="mt-10 grid place-items-center md:col-span-1 md:mt-0">
+                <span class="grid h-16 w-16 place-items-center rounded-full border border-primary/40 bg-primary/10 font-display text-xl font-semibold text-primary">02</span>
+              </div>
+              <div class="md:col-span-2 md:justify-self-start">
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+                  <span class="inline-flex items-center rounded-full bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.4em] text-primary">2020 - 2023</span>
+                  <h3 class="mt-4 text-2xl font-semibold text-white">Senior Communications Strategist</h3>
+                  <p class="mt-2 text-sm font-medium uppercase tracking-[0.3em] text-sand">Global Voices Collective</p>
+                  <p class="mt-4 text-gray-300">
+                    Designed integrated communication roadmaps for NGOs tackling youth employment and sustainability. Led video-first storytelling that increased campaign engagement by 280%.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="md:grid md:grid-cols-5 md:items-center md:gap-10">
+              <div class="md:col-span-2 md:justify-self-end">
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+                  <span class="inline-flex items-center rounded-full bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.4em] text-primary">2016 - 2020</span>
+                  <h3 class="mt-4 text-2xl font-semibold text-white">Documentary Producer</h3>
+                  <p class="mt-2 text-sm font-medium uppercase tracking-[0.3em] text-sand">Nexa Broadcast Network</p>
+                  <p class="mt-4 text-gray-300">
+                    Produced award-winning feature documentaries spotlighting cultural preservation and grassroots entrepreneurship. Mentored 50+ emerging storytellers through in-house labs.
+                  </p>
+                </div>
+              </div>
+              <div class="mt-10 grid place-items-center md:col-span-1 md:mt-0">
+                <span class="grid h-16 w-16 place-items-center rounded-full border border-primary/40 bg-primary/10 font-display text-xl font-semibold text-primary">03</span>
+              </div>
+              <div class="md:col-span-2 md:justify-self-start"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="bg-gradient-to-b from-onyx via-[#120b06] to-onyx py-24">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="flex flex-col items-center text-center">
+          <p class="text-sm font-semibold uppercase tracking-[0.5em] text-primary/70">Selected productions</p>
+          <h2 class="mt-4 font-display text-4xl font-semibold text-white md:text-5xl">Narratives that move audiences.</h2>
+          <p class="mt-4 max-w-3xl text-lg text-gray-300">Explore a curated selection of films, campaigns and multimedia projects produced for NGOs, brands and cultural institutions around the globe.</p>
+        </div>
+
+        <div class="mt-12 flex flex-wrap justify-center gap-4">
+          <button data-filter="all" class="rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm font-semibold text-gray-200 transition hover:border-primary hover:text-primary bg-primary text-white">All</button>
+          <button data-filter="documentary" class="rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm font-semibold text-gray-200 transition hover:border-primary hover:text-primary">Documentary</button>
+          <button data-filter="campaign" class="rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm font-semibold text-gray-200 transition hover:border-primary hover:text-primary">Campaign</button>
+          <button data-filter="shortfilm" class="rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm font-semibold text-gray-200 transition hover:border-primary hover:text-primary">Short Film</button>
+          <button data-filter="community" class="rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm font-semibold text-gray-200 transition hover:border-primary hover:text-primary">Community</button>
+        </div>
+
+        <div class="mt-16 grid gap-10 md:grid-cols-2 xl:grid-cols-3">
+          <article data-category="documentary community" class="overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-lg shadow-black/30 transition hover:-translate-y-2 hover:border-primary/40">
+            <div class="relative">
+              <img src="[https://images.unsplash.com/photo-1471526496695-78205f592369?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1471526496695-78205f592369?auto=format&fit=crop&w=1200&q=80)" alt="Documentary still" class="h-56 w-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 flex flex-wrap gap-2 text-xs font-semibold uppercase">
+                <span class="rounded-full bg-primary px-3 py-1 text-white">Documentary</span>
+                <span class="rounded-full bg-white/20 px-3 py-1 text-white">Community</span>
+              </div>
+            </div>
+            <div class="space-y-4 p-6">
+              <h3 class="font-display text-2xl font-semibold text-white">“Our Mother Tongue”</h3>
+              <p class="text-gray-300">A three-part series preserving endangered Nigerian dialects by documenting the custodians safeguarding them.</p>
+              <div class="flex items-center justify-between text-sm text-gray-400">
+                <span>Commissioned by CultureRise Initiative</span>
+                <a href="#" class="flex items-center gap-2 font-semibold text-primary hover:text-[#d87400]">Watch <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article data-category="campaign" class="overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-lg shadow-black/30 transition hover:-translate-y-2 hover:border-primary/40">
+            <div class="relative">
+              <img src="[https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80)" alt="Corporate strategy session" class="h-56 w-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 flex flex-wrap gap-2 text-xs font-semibold uppercase">
+                <span class="rounded-full bg-primary px-3 py-1 text-white">Campaign</span>
+              </div>
+            </div>
+            <div class="space-y-4 p-6">
+              <h3 class="font-display text-2xl font-semibold text-white">“Equal Tech Pledge”</h3>
+              <p class="text-gray-300">Pan-African digital campaign spotlighting women technologists; delivered 8-country roadshow content & policy briefs.</p>
+              <div class="flex items-center justify-between text-sm text-gray-400">
+                <span>For Bloom Bank & Women in STEM</span>
+                <a href="#" class="flex items-center gap-2 font-semibold text-primary hover:text-[#d87400]">Case Study <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article data-category="shortfilm documentary" class="overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-lg shadow-black/30 transition hover:-translate-y-2 hover:border-primary/40">
+            <div class="relative">
+              <img src="[https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80)" alt="Short film still" class="h-56 w-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 flex flex-wrap gap-2 text-xs font-semibold uppercase">
+                <span class="rounded-full bg-primary px-3 py-1 text-white">Short Film</span>
+              </div>
+            </div>
+            <div class="space-y-4 p-6">
+              <h3 class="font-display text-2xl font-semibold text-white">“Fragments of Light”</h3>
+              <p class="text-gray-300">An experimental short exploring memory, migration and the rituals that bind families apart across continents.</p>
+              <div class="flex items-center justify-between text-sm text-gray-400">
+                <span>Official Selection — Durban IFF</span>
+                <a href="#" class="flex items-center gap-2 font-semibold text-primary hover:text-[#d87400]">Trailer <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article data-category="community campaign" class="overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-lg shadow-black/30 transition hover:-translate-y-2 hover:border-primary/40">
+            <div class="relative">
+              <img src="[https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1200&q=80)" alt="Community training" class="h-56 w-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 flex flex-wrap gap-2 text-xs font-semibold uppercase">
+                <span class="rounded-full bg-primary px-3 py-1 text-white">Community</span>
+              </div>
+            </div>
+            <div class="space-y-4 p-6">
+              <h3 class="font-display text-2xl font-semibold text-white">“Media Labs for Her”</h3>
+              <p class="text-gray-300">Designed and led media literacy bootcamps training 200+ teenage girls in documentary storytelling and podcasting.</p>
+              <div class="flex items-center justify-between text-sm text-gray-400">
+                <span>Partner: GirlsLead Africa</span>
+                <a href="#" class="flex items-center gap-2 font-semibold text-primary hover:text-[#d87400]">Impact Deck <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article data-category="documentary" class="overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-lg shadow-black/30 transition hover:-translate-y-2 hover:border-primary/40">
+            <div class="relative">
+              <img src="[https://images.unsplash.com/photo-1521292270410-a8c08ea95dd4?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1521292270410-a8c08ea95dd4?auto=format&fit=crop&w=1200&q=80)" alt="Documentary photo" class="h-56 w-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 flex flex-wrap gap-2 text-xs font-semibold uppercase">
+                <span class="rounded-full bg-primary px-3 py-1 text-white">Documentary</span>
+              </div>
+            </div>
+            <div class="space-y-4 p-6">
+              <h3 class="font-display text-2xl font-semibold text-white">“Healing Rivers”</h3>
+              <p class="text-gray-300">A collaborative film with environmental advocates documenting communities restoring polluted waterways across Lagos.</p>
+              <div class="flex items-center justify-between text-sm text-gray-400">
+                <span>Co-created with GreenWatch</span>
+                <a href="#" class="flex items-center gap-2 font-semibold text-primary hover:text-[#d87400]">Watch <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article data-category="campaign shortfilm" class="overflow-hidden rounded-3球 border border-white/10 bg-white/5 shadow-lg shadow-black/30 transition hover:-translate-y-2 hover;border-primary/40">
+            <div class="relative">
+              <img src="[https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1200&q=80)" alt="Short documentary" class="h-56 w-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 flex flex-wrap gap-2 text-xs font-semibold uppercase">
+                <span class="rounded-full bg-primary px-3 py-1 text-white">Short Film</span>
+              </div>
+            </div>
+            <div class="space-y-4 p-6">
+              <h3 class="font-display text-2xl font-semibold text-white">“City of Dreamers”</h3>
+              <p class="text-gray-300">Branded short film for an innovation hub showcasing how creative entrepreneurs are redesigning Lagos’ skyline.</p>
+              <div class="flex items-center justify-between text-sm text-gray-400">
+                <span>Client: NovaWork Labs</span>
+                <a href="#" class="flex items-center gap-2 font-semibold text-primary hover:text-[#d87400]">View Film <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Community -->
+    <section id="community" class="bg-onyx py-24">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="flex flex-col items-center text-center">
+          <p class="text-sm font-semibold uppercase tracking-[0.5em] text-primary/70">Community engagement</p>
+          <h2 class="mt-4 font-display text-4xl font-semibold text-white md:text-5xl">Building spaces where creators thrive.</h2>
+          <p class="mt-4 max-w-3xl text-lg text-gray-300">I co-create programs that democratise access to media education, mentorship and funding for women, youth and underrepresented voices.</p>
+        </div>
+        <div class="mt-16 grid gap-10 lg:grid-cols-3">
+          <article class="space-y-6 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-lg shadow-black/30 transition hover:-translate-y-2 hover:border-primary/40">
+            <div class="rounded-full bg-primary/10 p-4 w-fit">
+              <i class="fa-solid fa-film text-2xl text-primary"></i>
+            </div>
+            <h3 class="font-display text-2xl font-semibold text-white">Youth Documentary Lab</h3>
+            <p class="text-gray-300">Annual bootcamp pairing teenagers with filmmakers to co-produce mini documentaries on community resilience. Graduates have screened films across 6 festivals.</p>
+            <div class="flex items-center justify-between text-sm text-gray-400">
+              <span>35 fellows each cohort</span>
+              <a href="#" class="font-semibold text-primary hover:text-[#d87400]">Explore</a>
+            </div>
+          </article>
+          <article class="space-y-6 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-lg shadow-black/30 transition hover:-translate-y-2 hover:border-primary/40">
+            <div class="rounded-full bg-primary/10 p-4 w-fit">
+              <i class="fa-solid fa-people-group text-2xl text-primary"></i>
+            </div>
+            <h3 class="font-display text-2xl font-semibold text-white">Storytelling for Policy</h3>
+            <p class="text-gray-300">Workshops equipping civil society organisations with content planning, scriptwriting and impact measurement to influence policy makers through multimedia storytelling.</p>
+            <div class="flex items-center justify-between text-sm text-gray-400">
+              <span>12 partner NGOs onboarded</span>
+              <a href="#" class="font-semibold text-primary hover:text-[#d87400]">Toolkit</a>
+            </div>
+          </article>
+          <article class="space-y-6 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-lg shadow-black/30 transition hover:-translate-y-2 hover:border-primary/40">
+            <div class="rounded-full bg-primary/10 p-4 w-fit">
+              <i class="fa-solid fa-lightbulb text-2xl text-primary"></i>
+            </div>
+            <h3 class="font-display text-2xl font-semibold text-white">Women Create Collective</h3>
+            <p class="text-gray-300">A mentorship circle and micro-grant fund connecting women filmmakers with industry experts, exchanging resources and co-producing short-form narratives.</p>
+            <div class="flex items-center justify-between text-sm text-gray-400">
+              <span>Funded 18 films to date</span>
+              <a href="#" class="font-semibold text-primary hover:text-[#d87400]">Join</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="bg-onyx py-24">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="flex flex-col items-center text-center">
+          <p class="text-sm font-semibold uppercase tracking-[0.5em] text-primary/70">Get in touch</p>
+          <h2 class="mt-4 font-display text-4xl font-semibold text-white md:text-5xl">Ready to collaborate?</h2>
+          <p class="mt-4 max-w-3xl text-lg text-gray-300">I'm here to support your media projects, whether you need guidance, funding, or just want to chat. Let's connect!</p>
+        </div>
+        <div class="mt-16 flex items-center justify-center gap-6">
+          <a href="#" class="flex items-center gap-2 font-semibold text-primary hover:text-[#d87400]">
+            <i class="fa-solid fa-envelope text-xs"></i>
+            zainab@novaworklabs.com
+          </a>
+          <a href="#" class="flex items-center gap-2 font-semibold text-primary hover:text-[#d87400]">
+            <i class="fa-solid fa-phone text-xs"></i>
+            +234 812 345 6789
+          </a>
+        </div>
+      </div>
+    </section>
   </div>
-</section>
 
- <section id="projects" class="relative py-16 sm:py-20 bg-gradient-to-br from-[#241001] via-[#cc9618]/40 to-[#f28500]/30">
-  <div class="container mx-auto px-4">
-    <!-- Section Heading -->
-    <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#FFD580] font-heading text-center mb-12 drop-shadow-md">
-      Featured Projects
-    </h2>
-
-    <!-- Projects Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-
-      <!-- Project Card 1 -->
-      <div class="bg-[#241001]/95 rounded-2xl shadow-2xl overflow-hidden flex flex-col hover:scale-105 transition-transform duration-300">
-        <div class="h-52 w-full overflow-hidden">
-          <img src="/img/1751901088534.jpeg" alt="Disruptive Storytelling" class="w-full h-full object-cover" />
-        </div>
-        <div class="p-6 flex-1 flex flex-col">
-          <h3 class="text-xl sm:text-2xl font-bold text-[#f28500] mb-3 font-heading">
-            Disruptive Storytelling in the Creative Industry
-          </h3>
-          <p class="text-base text-white/90 leading-relaxed mb-4 flex-1">
-            In Nigeria and other emerging markets, storytelling is more than a creative tool — 
-            it is survival, cultural disruption, and the seed for lasting change. This project 
-            explores how <span class="text-[#FFD580] font-semibold">authentic, layered narratives</span> 
-            dismantle stereotypes, challenge societal norms, and inspire collective action.
-          </p>
-          <ul class="list-disc list-inside text-white/80 text-sm sm:text-base mb-4 space-y-1">
-            <li>Case studies on campaigns for health, governance, and education</li>
-            <li>Highlights the role of narratives in shifting public perception</li>
-            <li>Demonstrates how storytelling fuels <span class="text-[#f28500] font-semibold">policy impact</span></li>
-            <li>Advocates for disruptive storytelling as a <span class="text-[#FFD580] font-semibold">tool of resistance</span></li>
-          </ul>
-          <a href="https://www.linkedin.com/posts/zainab-salami-10654055_in-the-media-and-creative-industry-storytelling-activity-7348259578007937025-dlC6?utm_source=share&utm_medium=member_desktop&rcm=ACoAADXNZYQBBK7as6zVIBQ6l3MT-eGB2bA5UR8" target="_blank" class="btn-outline self-start">
-            Read Full Article
-          </a>
-        </div>
-      </div>
-
-      <!-- Project Card 2 -->
-      <div class="bg-[#241001]/95 rounded-2xl shadow-2xl overflow-hidden flex flex-col hover:scale-105 transition-transform duration-300">
-        <div class="h-52 w-full overflow-hidden">
-          <img src="/img/1742984777992.jpeg" alt="Mswitch Creative Hub Partnership" class="w-full h-full object-cover" />
-        </div>
-        <div class="p-6 flex-1 flex flex-col">
-          <h3 class="text-xl sm:text-2xl font-bold text-[#f28500] mb-3 font-heading">
-            Mswitch Creative Hub: Empowering Nigerian Youths with Remote Jobs
-          </h3>
-          <p class="text-base text-white/90 leading-relaxed mb-4 flex-1">
-            Partnering with <span class="text-[#FFD580]">AfriLabs</span> and 
-            <span class="text-[#FFD580]">Cybersecurity Inc (US)</span>, Mswitch Creative Hub 
-            is creating <span class="text-[#f28500] font-semibold">250,000 remote job opportunities</span> 
-            for Nigerian youths. This initiative connects African professionals with global employers, 
-            bridging employment gaps and promoting sustainable economic growth.
-          </p>
-          <a href="https://www.linkedin.com/posts/zainab-salami-10654055_remotework-africatotheworld-mswitch-activity-7310616561566801921-Qtc1?utm_source=share&utm_medium=member_desktop&rcm=ACoAADXNZYQBBK7as6zVIBQ6l3MT-eGB2bA5UR8" target="_blank" class="btn-outline self-start">
-            Read Full Article
-          </a>
-        </div>
-      </div>
-
-      <!-- Project Card 3 -->
-      <div class="bg-[#241001]/95 rounded-2xl shadow-2xl overflow-hidden flex flex-col hover:scale-105 transition-transform duration-300">
-        <div class="h-52 w-full overflow-hidden">
-          <img src="/img/1751901089980.jpeg" alt="Impact Creators Documentary" class="w-full h-full object-cover" />
-        </div>
-        <div class="p-6 flex-1 flex flex-col">
-          <h3 class="text-xl sm:text-2xl font-bold text-[#f28500] mb-3 font-heading">
-            Impact Creators Documentary Series
-          </h3>
-          <p class="text-base text-white/90 leading-relaxed mb-4 flex-1">
-            A visually compelling documentary series spotlighting changemakers across Africa. 
-            Produced and directed to amplify underrepresented voices, the series demonstrates how 
-            local leaders are driving innovation, equity, and social transformation on a global stage.
-          </p>
-          <a href="https://example.com/impact-creators" target="_blank" class="btn-outline self-start">
-            Watch Series
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-    <!-- Footer -->
-    <!-- <footer class="bg-[#241001] text-center py-4 mt-auto">
-      <p class="text-sm">&copy; 2025 Zainab Salami. All rights reserved.</p>
-    </footer>
-  </div> -->
-
-  <script src="script.js"></script>
+  <!-- JS & Icons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
